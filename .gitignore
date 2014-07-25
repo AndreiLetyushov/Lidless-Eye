@@ -1,0 +1,15 @@
+# C++ objects and libs
+
+# Qt-es
+
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+Makefile*
+*build-*
+*.autosave
+release/
+bin
+build
+.DS_Store
