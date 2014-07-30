@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick network
 CONFIG += c++11
 
 SRC_DIR = src
@@ -17,9 +17,6 @@ SOURCES +=  \
 
 RESOURCES += $${SRC_DIR}/qml.qrc
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
 # Default rules for deployment.
 include(deployment.pri)
 
@@ -32,6 +29,7 @@ HEADERS += \
     $${SRC_DIR}/imagenode.h \
 
 INCLUDEPATH += /usr/local/include/opencv
+INCLUDEPATH += $$(PROOF_PATH)/include
 
 
 LIBS += -L/usr/local/lib
@@ -44,3 +42,5 @@ LIBS += -lopencv_core \
         -lopencv_nonfree \
         -lopencv_features2d \
         -lopencv_flann
+
+LIBS += -L$$(PROOF_PATH)/lib -lProofCore -lProofNetwork -lProofNetworkProfit -lProofGui
