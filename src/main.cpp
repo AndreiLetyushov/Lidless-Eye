@@ -1,5 +1,4 @@
 #include "cameraimageview.h"
-#include "sgcameraimageview.h"
 #include "worker.h"
 
 #include <QGuiApplication>
@@ -9,7 +8,6 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<SGCameraImageView>("recognition.components", 1, 0, "SGCameraImageView");
     qmlRegisterType<CameraImageView>("recognition.components", 1, 0, "CameraImageView");
 
     QQuickView view;

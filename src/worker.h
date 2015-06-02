@@ -4,10 +4,6 @@
 #include "usbcamera.h"
 
 #include <QObject>
-#include <QDebug>
-#include <QTimer>
-#include <QImage>
-
 
 class Worker : public QObject
 {
@@ -21,13 +17,9 @@ signals:
 
 private slots:
     void cameraIsReady(int result);
-    void proceedImageFromCam();
 
 private:
     Worker();
-
-    Q_DISABLE_COPY(Worker)
-
     UsbCamera *m_usbCam;
 };
 

@@ -8,9 +8,6 @@
 #include "opencv2/opencv.hpp"
 #include "opencv/cv.h"
 
-#include <QImage>
-#include <QDebug>
-
 class UsbCamera : public AbstractCamera
 {
     Q_OBJECT
@@ -24,14 +21,10 @@ public slots:
 
 signals:
 
-
 private:
-
     void getVideoProperties();
 
     cv::VideoCapture *m_capture;
-
-
 };
 
 #endif // USBCAMERA_H

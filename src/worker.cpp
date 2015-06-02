@@ -1,5 +1,9 @@
 #include "worker.h"
 
+#include <QDebug>
+#include <QTimer>
+#include <QImage>
+
 const Worker &Worker::instance()
 {
     static Worker workerInstance;
@@ -8,7 +12,7 @@ const Worker &Worker::instance()
 
 Worker::Worker()
 {
-    m_usbCam = new UsbCamera();
+    m_usbCam = new UsbCamera(this);
 
     connect(m_usbCam, &UsbCamera::initCameraFinished, this, &Worker::cameraIsReady);
     connect(m_usbCam, &UsbCamera::newImageIsReagy, this, &Worker::newImageIsReagy);
@@ -18,7 +22,7 @@ Worker::Worker()
 
 void Worker::cameraIsReady(int result)
 {
-    if(result != 0) {
+    if (result != 0) {
         qDebug() << "Error: Camera initialisation failed : " << result << endl;
         return;
     }
@@ -28,8 +32,4 @@ void Worker::cameraIsReady(int result)
     timer->start(100);
 }
 
-void Worker::proceedImageFromCam()
-{
-
-}
 

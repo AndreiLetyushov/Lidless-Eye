@@ -5,11 +5,9 @@
 
 #include <QQuickPaintedItem>
 #include <QImage>
-#include <QPainter>
 #include <QMutex>
 
-#include <memory>
-
+class QPainter;
 
 class CameraImageView : public QQuickPaintedItem
 {
@@ -20,13 +18,11 @@ public:
 public slots:
     void setNewImage(const QImage &newImage);
 
-
 private:
     void paint(QPainter *painter);
 
     QImage m_imgFromCam;
     QMutex m_mutex;
-
 };
 
 #endif // CAMERAIMAGEVIEW_H
